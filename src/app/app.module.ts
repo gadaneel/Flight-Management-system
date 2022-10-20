@@ -11,7 +11,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 import { SeatingComponent } from './seating/seating.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -34,7 +34,7 @@ import { PaymentComponent } from './payment/payment.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    //FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

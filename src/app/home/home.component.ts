@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome/icon-library';
+//import { FaIconLibrary } from '@fortawesome/angular-fontawesome/icon-library';
 import { FlightSearchService } from '../_service/flightsearch.service';
 import { TokenStorageService } from '../_service/token-storage.service';
 import { UserService } from '../_service/user.service';
