@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_service/token-storage.service';
 import { AuthService } from '../_service/auth.service';
+import { AddNotificationService } from '../_service/add-notification.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -14,13 +15,28 @@ export class LoginComponent implements OnInit {
   };
   isLoggedIn = false;
   isLoginFailed = false;
+  isAdmin = false;
   errorMessage = '';
   roles: string[] = [];
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService,private router:Router) { }
+  notification: string = "Note: ";
+  constructor(private authService: AuthService, private addNotificationService: AddNotificationService, private tokenStorage: TokenStorageService, private router:Router) { }
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      if (this.roles[0]=="ROLE_ADMIN") {
+        this.isAdmin = true;
+      }
+      else {
+        this.addNotificationService.getNotification(this.roles[0]).subscribe(
+          data => {
+            this.notification += data.message;
+          },
+          err => {
+            this.errorMessage = err.error.message;
+          }
+        );
+      }
     }
   }
   onSubmit(): void {
@@ -32,7 +48,21 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        if (this.roles[0]=="ROLE_ADMIN") {
+          this.isAdmin = true;
+          this.reloadPage();
+        }
+        else {
+          this.addNotificationService.getNotification(this.roles[0]).subscribe(
+            data => {
+              this.notification += data.message;
+              this.reloadPage();
+            },
+            err => {
+              this.errorMessage = err.error.message;
+            }
+          );
+        }
         
       },
       err => {

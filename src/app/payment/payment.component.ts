@@ -35,7 +35,7 @@ form: any = {};
     "key": "",
     "amount": this.amount, 
     "name": "Adarsh Gour",
-    "description": "FlightBuzz",
+    "description": "AirFly",
     "image": "",
     "order_id":"",
     "handler": function (response:any){
