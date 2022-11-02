@@ -1,18 +1,23 @@
-.container {
-    background-image: url(./assets/flight2.gif);
+.banner {
+    background-image: url(./assets/flightbg.jpg);
     background-repeat: no-repeat;
-    margin-left: 20px;
-    max-width: inherit;
-    height: 499px;
-    margin-top: -21px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 1000px;
+    width: 70%;
 }
 
+
 .container2 {
-    background-color: #20456c;
-    width: 96.3%;
+    background-color:rgb(11, 11, 63);
+    width: 100%;
     height: 210px;
-    margin-left: 20px;
     text-align: center;
+    align-self: center;
+    color: white;
+
 }
 
 .icon {
@@ -42,7 +47,7 @@
 }
 
 .icon:hover {
-    color: #C1DCF9;
+    color: darkolivegreen;
 }
 
 .banner {
@@ -58,27 +63,34 @@
 
 #search-form {
     border: none;
-    width: 700px;
+    width: 900px;
     position: absolute;
     right: 16px;
     height: 479px;
-    background-color: #CBE4FE;
+    background-color: white;
     margin-top: 20px;
     margin-right: 20px;
+    align-self: center;
+    margin-right: 550px;
+    border: solid black 5px;
 }
 
 #header {
     height: 80px;
-    background: #07f;
+    color: black;
+    background: powderblue;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-weight: bolder
+    
 }
 
 #header h1 {
-    color: #FFF;
-    margin-left: 20px;
-    font-size: 1.3em
+    color: black;
+    font-size: 1.5em;
+    margin-left: 350px;
+    
 }
 
 .flight {
@@ -103,20 +115,21 @@ select {
 
 .info-box label {
     display: block;
-    color: #6B6A6A;
-    font-size: .9em;
+    color: black;
+    font-size: 1.5em;
 }
 
 .info-box input[type=text],
 input[type=submit],
 select {
-    border: none;
+    border: solid darkblue 2px;
     outline: none;
-    background: #C1DCF9;
+    background: white;
     width: 100%;
     padding: 5px;
     height: 30px;
     border-radius: 3px;
+    font-weight: bolder;
 }
 
 #flight-info {
@@ -125,8 +138,8 @@ select {
 }
 
 #btn1 {
-    background: #4388DB;
-    color: white;
+    background: powderblue;
+    color: black;
     padding: 10px;
     height: 50px;
     font-size: 1.2em;
@@ -137,6 +150,7 @@ select {
     width: 95%;
     margin-right: 10px;
     border-radius: 5px;
+    font-weight: bolder;
 }
 
 #flight-depart {
@@ -151,11 +165,13 @@ select {
 }
 
 .info-box #leave-date {
-    background: #C1DCF9;
+    background: white;
     margin-top: 7px;
-    width: 658px;
+    width: 700px;
     text-align: center;
     border-style: none;
+    font-weight: bolder;
+    border: solid darkblue 2px;
 }
 
 #btn1:hover {
@@ -184,5 +200,5 @@ select {
 }
 
 #btn2:hover {
-    background-color: #C1DCF9;
+    background-color:darkolivegreen;
 }

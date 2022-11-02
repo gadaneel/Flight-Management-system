@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
 import { SeatingComponent } from './seating/seating.component';
+import {ContactUs} from './contactus/contactus.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,8 +20,8 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'cancelBooking', component: CancelBookingComponent },
   { path: 'seating', component: SeatingComponent },
+  {path:'contactus',component:ContactUs},
   { path: 'payment/:userId/:amount', component: PaymentComponent },
-
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

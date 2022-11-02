@@ -1,11 +1,21 @@
+.login-page {
+    background-image: url('../login/assets/bgflight.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container {
     text-align: center;
     max-height: fit-content;
     max-width: 313px;
     position: absolute;
-    right: 280px;
-    top: 200px;
+    right: 70px;
+    margin-top: 30px;
     background-color: #fcfff5;
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 20PX;
+    border: solid black 2px;
 }
 
 .card {
@@ -14,11 +24,8 @@
 }
 
 .image {
-    background-image: url(./assets/flight1.gif);
-    background-repeat: no-repeat;
-    margin-left: 150px;
-    max-width: inherit;
-    height: 499px;
+    max-width: 2000px;
+    height: 800px;
     margin-top: -21px;
 }
 
@@ -30,7 +37,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #8bd1f2;
+    background-color: darkslategrey;
 }
 
 img {
@@ -38,13 +45,14 @@ img {
 }
 
 .container2 {
-    background-color: #fcfff5;
+    background-color:lightblue ;
     width: 100.3%;
     height: 210px;
     margin-left: 0px;
     text-align: center;
     position: absolute;
     bottom: -50px;
+
 }
 
 .icon {

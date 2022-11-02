@@ -20,7 +20,7 @@
 
             <div id="search-form">
                 <div id="header">
-                    <h1>Get Your Flight</h1>
+              <h1>Book Your Flight</h1>
                 </div>
 
                 <div class="flight" id="flightbox">
@@ -31,7 +31,7 @@
                         <!-- FROM/TO -->
                         <div id="flight-depart">
                             <div class=" info-box ">
-                                <label for=" ">LEAVING FROM</label>
+                                <label for=" ">LEAVING FROM:</label>
                                 <select id="dep-from" required [(ngModel)]=" form.departure_location" name="departure_location" #departure_location="ngModel">
                                         <option value="Mumbai">Mumbai</option>
                                         <option value="Delhi">Delhi</option>
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="info-box " id="arrive-box ">
-                                <label for=" ">ARRIVING AT</label>
+                                <label for=" ">ARRIVING AT:</label>
                                 <select id="dep-to" required [(ngModel)]="form.arrival_location" name="arrival_location" #arrival_location="ngModel">
                                         <option value="Mumbai">Mumbai</option>
                                         <option value="Delhi">Delhi</option>
@@ -57,7 +57,7 @@
                         <div id="flight-dates ">
                             <div class="info-box ">
                                 <label>
-                                      LEAVING ON
+                                      TRAVEL DATE:
                                     </label>
                                 <input type="date" [min]="now" id="leave-date" class="form-control" required [(ngModel)]="form.date" name="date" #date="ngModel" />
                             </div>
@@ -133,19 +133,18 @@
                   </svg>
             </div>
 
-            <span id="footer_img "> <img src="../assets/36e82ef9-193b-4a92-b13e-637295421ac5.jpg " alt="image " style="float: left; position: relative; top: -23px; border-radius: 50%; width: 66px; height: 63px; border-style: double; margin-left: 20px; "/>
-                <h2 style="float: left; position: relative; top: -12px; margin-left: 10px; color: whitesmoke; font-weight: bolder; ">FlightBuzz</h2>
+            <span id="footer_img "> <img src="../assets/flight-logo.jpeg " alt="image " style="float: left; position: relative; top: -23px; border-radius: 50%; width: 66px; height: 63px; border-style: double; margin-left: 20px; "/>
+                <h2 style="float: left; position: relative; top: -12px; margin-left: 10px; color: whitesmoke; font-weight: bolder; ">FlyFam</h2>
              </span>
             <span style="position: relative;right: -98px;;top: 13px; ">
                 <a href="/login " style="margin: 20px;color: #C1DCF9;font-size: 24px; ">Admin</a>
                                     <a href="/login " style="margin: 20px;color: #C1DCF9;font-size: 24px; ">Crew</a>
-                                    <a href="# " style="margin: 20px;color: #C1DCF9;font-size: 24px; ">Contact-Us</a>
+                                    <a href="/contactus" style="margin: 20px;color: #C1DCF9;font-size: 24px; ">Contact-Us</a>
 
 
                                     </span>
             <span style="float: inline-end; color: whitesmoke;font-style: italic;position: relative;bottom: -71px; ">
-Copyright:Adarsh Gour@PrachiTrader-2022
-<a href="# ">terms & conditions</a>
+                Copyright: GROUP 4 CS5914 SPM 2022
             </span>
         </div>
 

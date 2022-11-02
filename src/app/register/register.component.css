@@ -3,8 +3,10 @@
     max-height: fit-content;
     max-width: 348px;
     position: absolute;
-    right: -4px;
-    background-color: #fcda9300;
+    right: 70px;
+    background-color: white;
+    top: 30px;
+    padding: 20px;
 }
 
 .container2 {
@@ -21,10 +23,11 @@
 .image {
     background-image: url(./assets/flight6.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
     margin-left: 0px;
     width: 100%;
-    height: 405px;
-    margin-top: -10px;
+    height: 800px;
+   margin-top: -10px;
     position: absolute;
 }
 
@@ -42,11 +45,11 @@ img {
 
 .form-group .btn {
     margin-top: 46px;
-    background-color: #57bbdc;
+    background-color: darkblue;
 }
 
 .container2 {
-    background-color: #f1c274;
+    background-color: darkgoldenrod;
     width: 100.3%;
     height: 210px;
     margin-left: 0px;
