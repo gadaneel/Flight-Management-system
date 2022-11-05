@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -14,16 +15,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import security.jwt.jwt.JwtUtils;
 import security.jwt.services.UserDetailsImpl;
 import security.payload.request.LoginRequest;
 import security.payload.request.SignUpRequest;
+import security.payload.request.NotificationRequest;
 import security.payload.response.MessageResponse;
 import security.payload.response.UserInfoResponse;
 import security.pojo.ERole;
@@ -109,5 +107,35 @@ public class AuthController {
     user.setRoles(roles);
     userRepository.save(user);
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+  }
+
+  @PostMapping("/addUserNotification")
+  public String addUserNotification(@Valid @RequestBody NotificationRequest notificationRequest) {
+    Role userRole = null;
+    if (notificationRequest.getUserType().equals("ROLE_USER")) {
+      userRole = roleRepository.findByName(ERole.ROLE_USER)
+              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+    }
+    else if (notificationRequest.getUserType().equals("ROLE_ATTENDEE")) {
+      userRole = roleRepository.findByName(ERole.ROLE_ATTENDEE)
+              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+    }
+    userRole.setMessage(notificationRequest.getMessage());
+    roleRepository.save(userRole);
+    return "Notification Updated Successfully!";
+  }
+
+  @GetMapping("/user/{userType}")
+  public ResponseEntity<?> getNotification(@PathVariable("userType") String userType){
+    Role userRole = null;
+    if (userType.equals("ROLE_USER")) {
+      userRole = roleRepository.findByName(ERole.ROLE_USER)
+              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+    }
+    else if (userType.equals("ROLE_ATTENDEE")) {
+      userRole = roleRepository.findByName(ERole.ROLE_ATTENDEE)
+              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+    }
+    return ResponseEntity.ok(new MessageResponse(userRole.getMessage()));
   }
 }
