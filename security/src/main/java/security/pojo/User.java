@@ -27,6 +27,9 @@ public class User {
 	  private String password;
 	  @DBRef
 	  private Set<Role> roles = new HashSet<>();
+	  @DBRef
+	  private Set<Coupon> coupons = new HashSet<>();
+
 	  public User() {
 	  }
 	  public User(String username, String email, String password) {
@@ -64,5 +67,11 @@ public class User {
 	  public void setRoles(Set<Role> roles) {
 	    this.roles = roles;
 	  }
+	  public Set<Coupon> getCoupons() {
+		return coupons;
+	}
+	  public void setCoupons(Set<Coupon> coupons) {
+		this.coupons = coupons;
+	}
 
 }
