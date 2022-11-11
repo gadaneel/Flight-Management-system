@@ -45,11 +45,57 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="coupon">Coupon</label>
+                    <input type="text" class="form-control" name="coupon" [(ngModel)]="form.amount" required #amount="ngModel" />
+                    <!--                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && coupon.invalid">-->
+                    <!--&lt;!&ndash;                  <div *ngIf="amount.errors?.['required']">Amount is required</div>&ndash;&gt;-->
+                    <!--                </div>-->
+                </div>
+                <div class="form-group">
                     <button class="btn btn-primary btn-block">Pay</button>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        function validateCoupon() {
+            const couponCodes10 = [
+                "o1JxCRSh",
+                "qLAskREk",
+                "UeKxeJm7",
+                "o2Rv0pYu",
+                "qE5hS2mR",
+                "vSGEeozw",
+                "QTZf1QoX",
+                "qooXjI2p",
+                "L7zL84pi",
+                "JZ4ZtfZI"]
+
+            const couponCodes20 = [
+                "o1JxCRSh20",
+                "qLAskREk20",
+                "UeKxeJm720",
+                "o2Rv0pYu20",
+                "qE5hS2mR20",
+                "vSGEeozw20",
+                "QTZf1QoX20",
+                "qooXjI2p20",
+                "L7zL84pi20",
+                "JZ4ZtfZI20"]
+
+            let x = document.forms["form"]["coupon"].value;
+
+            if(couponCodes10.indexOf(x) !== -1){
+                alert("Coupon code has been accepted and you have got 10% discount on your trip");
+            } else {
+                if(couponCodes20.indexOf(x) !== -1){
+                    alert("Coupon code has been accepted and you have got 20% discount on your trip");
+                } else {
+                    alert("Invalid coupon code");
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
