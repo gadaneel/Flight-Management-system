@@ -1,199 +1,204 @@
 .banner {
-  background-image: url(./assets/flightbg.jpg);
-  background-repeat: no-repeat;
+    background-image: url(./assets/flightbg.jpg);
+    background-repeat: no-repeat;
 }
 .container {
-  display: flex;
-  justify-content: space-between;
-  height: 1000px;
-  width: 70%;
+    display: flex;
+    justify-content: space-between;
+    height: 1000px;
+    width: 70%;
 }
 
+
 .container2 {
-  background-color: rgb(11, 11, 63);
-  width: 100%;
-  height: 210px;
-  text-align: center;
-  align-self: center;
-  color: white;
+    background-color:rgb(11, 11, 63);
+    width: 100%;
+    height: 210px;
+    text-align: center;
+    align-self: center;
+    color: white;
+
 }
 
 .icon {
-  margin: 30px;
-  cursor: pointer;
+    margin: 30px;
+    cursor: pointer;
 }
 
 #footer_img {
-  display: inline-block;
-  float: left;
+    display: inline-block;
+    float: left;
 }
 
 #footer_img h2 {
-  position: relative;
-  right: -76px;
-  top: -57px;
-  color: aliceblue;
-  font-weight: bolder;
+    position: relative;
+    right: -76px;
+    top: -57px;
+    color: aliceblue;
+    font-weight: bolder;
 }
 
 .container2 #footer_img img {
-  border-radius: 50%;
-  float: left;
-  height: 68px;
-  width: 72px;
-  border-style: double;
+    border-radius: 50%;
+    float: left;
+    height: 68px;
+    width: 72px;
+    border-style: double;
 }
 
 .icon:hover {
-  color: darkolivegreen;
+    color: darkolivegreen;
 }
 
 .banner {
-  display: flex;
+    display: flex;
 }
+
 
 /* Search Form */
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #search-form {
-  border: none;
-  width: 1200px;
-  position: absolute;
-  right: 16px;
-  height: 479px;
-  background-color: white;
-  margin-top: 20px;
-  margin-right: 20px;
-  align-self: center;
-  margin-right: 550px;
-  border: solid black 5px;
+    border: none;
+    width: 900px;
+    position: absolute;
+    right: 16px;
+    height: 479px;
+    background-color: white;
+    margin-top: 20px;
+    margin-right: 20px;
+    align-self: center;
+    margin-right: 550px;
+    border: solid black 5px;
 }
 
 #header {
-  height: 80px;
-  color: black;
-  background: powderblue;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-weight: bolder;
+    height: 80px;
+    color: black;
+    background: powderblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bolder
+    
 }
 
 #header h1 {
-  color: black;
-  font-size: 1.5em;
-  margin-left: 350px;
+    color: black;
+    font-size: 1.5em;
+    margin-left: 350px;
+    
 }
 
 .flight {
-  padding: 20px;
+    padding: 20px;
 }
 
 .flight input,
 select {
-  color: #565555;
+    color: #565555;
 }
 
 .info-box {
-  padding: 10px 0;
-  margin-top: 41px;
-  flex: 1;
-  border-right: 0px solid transparent;
+    padding: 10px 0;
+    margin-top: 41px;
+    flex: 1;
+    border-right: 0px solid transparent;
 }
 
 .info-box:last-child {
-  border-right: none;
+    border-right: none;
 }
 
 .info-box label {
-  display: block;
-  color: black;
-  font-size: 1.5em;
+    display: block;
+    color: black;
+    font-size: 1.5em;
 }
 
-.info-box input[type="text"],
-input[type="submit"],
+.info-box input[type=text],
+input[type=submit],
 select {
-  border: solid darkblue 2px;
-  outline: none;
-  background: white;
-  width: 100%;
-  padding: 5px;
-  height: 30px;
-  border-radius: 3px;
-  font-weight: bolder;
+    border: solid darkblue 2px;
+    outline: none;
+    background: white;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+    border-radius: 3px;
+    font-weight: bolder;
 }
 
 #flight-info {
-  display: flex;
-  border-bottom: 1px dotted silver;
+    display: flex;
+    border-bottom: 1px dotted silver;
 }
 
 #btn1 {
-  background: powderblue;
-  color: black;
-  padding: 10px;
-  height: 50px;
-  font-size: 1.2em;
-  position: absolute;
-  bottom: 9px;
-  display: flex;
-  justify-content: center;
-  width: 95%;
-  margin-right: 10px;
-  border-radius: 5px;
-  font-weight: bolder;
+    background: powderblue;
+    color: black;
+    padding: 10px;
+    height: 50px;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 9px;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-weight: bolder;
 }
 
 #flight-depart {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dotted silver;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted silver;
 }
 
 #flight-depart .info-box {
-  position: relative;
-  margin: 5px;
+    position: relative;
+    margin: 5px;
 }
 
 .info-box #leave-date {
-  background: white;
-  margin-top: 7px;
-  width: 350px;
-  text-align: center;
-  border-style: none;
-  font-weight: bolder;
-  border: solid darkblue 2px;
+    background: white;
+    margin-top: 7px;
+    width: 700px;
+    text-align: center;
+    border-style: none;
+    font-weight: bolder;
+    border: solid darkblue 2px;
 }
 
 #btn1:hover {
-  background-color: #3b77c0;
+    background-color: #3b77c0;
 }
 
 .Data {
-  background-color: #cbe4fe;
-  width: 96.3%;
-  height: auto;
-  margin-left: 20px;
-  text-align: center;
+    background-color: #CBE4FE;
+    width: 96.3%;
+    height: auto;
+    margin-left: 20px;
+    text-align: center;
 }
 
 .table {
-  border-radius: 5px;
-  background-color: #5094e1;
+    border-radius: 5px;
+    background-color: #5094e1;
 }
 
 #btn2 {
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #cbe4fe;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #CBE4FE;
 }
 
 #btn2:hover {
-  background-color: darkolivegreen;
+    background-color:darkolivegreen;
 }
