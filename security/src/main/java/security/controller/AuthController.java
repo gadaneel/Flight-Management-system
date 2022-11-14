@@ -1,9 +1,6 @@
 package security.controller;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.validation.Valid;
@@ -118,7 +115,7 @@ public class AuthController {
   }
 
   @PostMapping("/addUserNotification")
-  public String addUserNotification(@Valid @RequestBody NotificationRequest notificationRequest) {
+  public ResponseEntity<?> addUserNotification(@Valid @RequestBody NotificationRequest notificationRequest) {
     Role userRole = null;
     if (notificationRequest.getUserType().equals("ROLE_USER")) {
       userRole = roleRepository.findByName(ERole.ROLE_USER)
@@ -129,7 +126,7 @@ public class AuthController {
     }
     userRole.setMessage(notificationRequest.getMessage());
     roleRepository.save(userRole);
-    return "Notification Updated Successfully!";
+    return ResponseEntity.ok(new MessageResponse("Notification Updated Successfully!"));
   }
 
   @GetMapping("/user/{userType}")
@@ -146,9 +143,24 @@ public class AuthController {
   }
 
   @PostMapping("/addDiscountCode")
-  public String addDiscountCode(@Valid @RequestBody DiscountRequest discountRequest) {
+  public ResponseEntity<?> addDiscountCode(@Valid @RequestBody DiscountRequest discountRequest) {
     if (couponRepository.existsByCode(discountRequest.getCode())) {
-      return "Discount Code already exists";
+      Coupon coupon = couponRepository.findByCode(discountRequest.getCode()).get();
+      coupon.setDiscountValue(discountRequest.getDiscountValue());
+      coupon.setExpiryDate(discountRequest.getExpiryDate());
+      if (discountRequest.getEmailAddress().equals("all")) {
+        coupon.setIsPublic(true);
+      }
+      else {
+        coupon.setIsPublic(false);
+        User user = userRepository.findByUsername(discountRequest.getEmailAddress()).get();
+        Set<Coupon> coupons = user.getCoupons();
+        coupons.add(coupon);
+        user.setCoupons(coupons);
+        userRepository.save(user);
+      }
+      couponRepository.save(coupon);
+      return ResponseEntity.ok(new MessageResponse("Discount Code updated"));
     } else {
       if (discountRequest.getEmailAddress().equals("all")) {
         Coupon coupon = new Coupon(
@@ -174,6 +186,24 @@ public class AuthController {
         userRepository.save(user);
       }
     }
-    return "Discount Code added successfully";
+    return ResponseEntity.ok(new MessageResponse("Discount Code added successfully"));
+  }
+
+  @GetMapping("/getDiscountCodes/user/{emailAddress}")
+  public List<Coupon> getCouponsByUser(@PathVariable("emailAddress") String emailAddress){
+    List<Coupon> couponList = couponRepository.findAll();
+    List<Coupon> coupon = new ArrayList<Coupon>();
+
+    for (Coupon c: couponList) {
+      if (c.getIsPublic()) {
+        coupon.add(c);
+      }
+    }
+    User user = userRepository.findByUsername(emailAddress).get();
+    Set<Coupon> coupons = user.getCoupons();
+    for (Coupon c:coupons) {
+      coupon.add(c);
+    }
+    return coupon;
   }
 }

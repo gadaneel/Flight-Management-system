@@ -1,6 +1,7 @@
 package security.payload.request;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Date;
 
@@ -9,11 +10,11 @@ public class DiscountRequest {
     @Size(max=20)
     private String code;
 
-    @NotBlank
+    @NotNull
     private Integer discountValue;
 
-    @NotBlank
-    private Date expiryDate;
+    @NotNull
+    private Long expiryDate;
 
     @NotBlank
     @Size(max=50)
@@ -27,9 +28,9 @@ public class DiscountRequest {
     }
 
     public Date getExpiryDate() {
-        return expiryDate;
+        return new Date(expiryDate);
     }
-    public void setExpiryDate(Date expiryDate) { this.expiryDate = expiryDate; }
+    public void setExpiryDate(Date expiryDate) { this.expiryDate = expiryDate.getTime(); }
 
     public Integer getDiscountValue() { return discountValue; }
     public void setDiscountValue(Integer discountValue) { this.discountValue = discountValue; }
