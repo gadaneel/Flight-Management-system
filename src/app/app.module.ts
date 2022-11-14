@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { AdminDiscountComponent } from './discount/admin-discount.component';
 import { BoardAttendeeComponent } from './board-attendee/board-attendee.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +28,8 @@ import { PaymentComponent } from './payment/payment.component';
     RegisterComponent,
     CancelBookingComponent,
     SeatingComponent,
-    PaymentComponent
+    PaymentComponent,
+    AdminDiscountComponent
   ],
   imports: [
     BrowserModule,

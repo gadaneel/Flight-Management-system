@@ -24,8 +24,13 @@
                 </li>
 
                 <li class="nav-item " *ngIf="showAdminBoard ">
-                    <a href="/admin" class="nav-link " routerLink="admin">Add User Notification</a>
+                    <a href="/addUserNotification" class="nav-link " routerLink="addUserNotification">Add User Notification</a>
                 </li>
+
+                <li class="nav-item" *ngIf="showAdminBoard">
+                    <a href="/addDiscountCode" class="nav-link " routerLink="addDiscountCode">Provide Discount Codes</a>
+                </li>
+
                 <li class="nav-item " *ngIf="showAttendeeBoard ">
                     <a href="/attendee" class="nav-link " routerLink="attendee">Attendee Board</a>
                 </li>

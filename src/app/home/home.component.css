@@ -197,3 +197,11 @@ select {
 #btn2:hover {
   background-color: darkolivegreen;
 }
+
+#discount-section {
+  margin-top: 10px;
+}
+
+#discount-codes {
+  height: fit-content;
+}

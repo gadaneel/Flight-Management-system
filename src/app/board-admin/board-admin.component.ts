@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from '../_service/token-storage.service';
-import { AuthService } from '../_service/auth.service';
 import { Router } from '@angular/router';
 import { AddNotificationService } from '../_service/add-notification.service';
 
@@ -25,7 +23,7 @@ export class BoardAdminComponent implements OnInit {
   onSubmit(): void {
     const { usertype, notification } = this.form;
     this.addNotificationService.addNotification(usertype, notification).subscribe(
-      data => {},
+      data => {alert(data.message)},
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;

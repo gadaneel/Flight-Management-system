@@ -104,7 +104,6 @@
 
               <!-- FROM/TO -->
               <div id="flight-dates ">
-                <div class="info-box">
                   <label> TRAVEL DATE: </label>
                   <input
                     type="date"
@@ -116,7 +115,12 @@
                     name="date"
                     #date="ngModel"
                   />
-                </div>
+                  <div id="discount-section" *ngIf="showUserHome">
+                    <label> Discount Codes: </label>
+                    <select id="discount-codes" required [(ngModel)]=" form.usertype" name="usertype" #user_type="ngModel">
+                      <option *ngFor="let code of codes">{{code.code}}</option>
+                    </select>
+                  </div>
                 <div *ngIf="date.dirty || date.touched" class="alert">
                   <div *ngIf="date.errors?.['required']">
                     <a style="color: red; font-size: large"

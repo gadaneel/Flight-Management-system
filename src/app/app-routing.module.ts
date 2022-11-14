@@ -10,6 +10,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
 import { SeatingComponent } from './seating/seating.component';
 import {ContactUs} from './contactus/contactus.component';
+import { AdminDiscountComponent } from './discount/admin-discount.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'user/:flight_id/:date', component: BoardUserComponent },
   { path: 'attendee', component: BoardAttendeeComponent },
-  { path: 'admin', component: BoardAdminComponent },
+  { path: 'addUserNotification', component: BoardAdminComponent },
+  { path: 'addDiscountCode', component: AdminDiscountComponent },
   { path: 'cancelBooking', component: CancelBookingComponent },
   { path: 'seating', component: SeatingComponent },
   {path:'contactus',component:ContactUs},

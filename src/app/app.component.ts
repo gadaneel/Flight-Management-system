@@ -11,6 +11,7 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   showAttendeeBoard = false;
+  showUserBoard = false;
   username?: string;
 
  constructor(private tokenStorageService: TokenStorageService ,private router:Router ) { }
