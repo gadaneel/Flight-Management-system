@@ -13,8 +13,8 @@
 
         <div class="container">
             <div class="card card-container">
-                <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                    <div class="form-group">
+                <form *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+                    <!-- <div class="form-group">
                         <h4> <label for="username">Username</label>
                         </h4>
                         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" />
@@ -27,8 +27,40 @@
                                 Username must be at most 20 characters
                             </div>
                         </div>
+                    </div> -->
+                    <div class="form-group">
+                        <h4><label for="name">Name</label>
+                        </h4>
+                        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" (focusout)="validateName()" />
+                        <div class="alert alert-danger" role="alert" *ngIf="!isValidName">
+                            {{nameValidationError}}
+                        </div>   
                     </div>
                     <div class="form-group">
+                        <h4><label for="name">Phone</label>
+                        </h4>
+                        <input type="text" class="form-control" name="phone" [(ngModel)]="form.phone" #phone="ngModel" (focusout)="validatePhone()" />
+                        <div class="alert alert-danger" role="alert" *ngIf="!isValidPhone">
+                            {{phoneValidationError}}
+                        </div>   
+                    </div>
+                    <div class="form-group">
+                        <h4><label for="name">Email</label>
+                        </h4>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" (focusout)="validateEmail()" />
+                        <div class="alert alert-danger" role="alert" *ngIf="!isValidEmail">
+                            {{emailValidationError}}
+                        </div>   
+                    </div>
+                    <div class="form-group">
+                        <h4><label for="name">Password</label>
+                        </h4>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel" (focusout)="validatePassword()" />
+                        <div class="alert alert-danger" role="alert" *ngIf="!isValidPassword">
+                            {{passwordValidationError}}
+                        </div>   
+                    </div>
+                    <!-- <div class="form-group">
                         <h4><label for="email">Email</label>
                         </h4>
                         <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
@@ -48,7 +80,7 @@
                                 Password must be at least 8 characters
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <button class="btn btn-primary btn-block">Sign Up</button>
                     </div>
