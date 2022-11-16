@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
       this.isValidPhone = false;
       return;
     }
-    const res = new RegExp(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/).test(search);
+    const res = new RegExp(/^(\+\d{1,2}[\s-]*)?\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}$/).test(search);
     if(res) {
       this.phoneValidationError = '';
     } else {
@@ -132,7 +132,7 @@ export class RegisterComponent implements OnInit {
     this.validatePhone();
     this.validateEmail();
     this.validatePassword();
-    if(!this.isValidName || !this.isValidPhone || this.isValidEmail || !this.isValidPassword)
+    if(!this.isValidName || !this.isValidPhone || !this.isValidEmail || !this.isValidPassword)
       return;
     this.authService.register(name, phone, email, password).subscribe(
       data => {
