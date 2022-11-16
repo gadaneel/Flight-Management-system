@@ -15,9 +15,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 	  @Id
 	  private String id;
+
+	  @NotBlank
+	  private int confirmation_number;
+
+	  @Size(min=10,max=20)
+	  private String phone;
+
 	  @NotBlank
 	  @Size(max = 20)
 	  private String username;
+
+	  @NotBlank
+	  @Size(max = 20)
+	  private String name;
+
 	  @NotBlank
 	  @Size(max = 50)
 	  @Email
@@ -32,11 +44,14 @@ public class User {
 
 	  public User() {
 	  }
-	  public User(String username, String email, String password) {
-	    this.username = username;
-	    this.email = email;
-	    this.password = password;
-	  }
+		public User(String name, String phone, String email, String password, int confirmation_number) {
+			this.name = name;
+			this.username = email;
+			this.email=email;
+			this.password = password;
+			this.phone=phone;
+			this.confirmation_number=confirmation_number;
+		}
 	  public String getId() {
 	    return id;
 	  }
@@ -72,6 +87,30 @@ public class User {
 	}
 	  public void setCoupons(Set<Coupon> coupons) {
 		this.coupons = coupons;
+	}
+
+	public int getConfirmation_number() {
+		return confirmation_number;
+	}
+
+	public void setConfirmation_number(int confirmation_number) {
+		this.confirmation_number = confirmation_number;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
